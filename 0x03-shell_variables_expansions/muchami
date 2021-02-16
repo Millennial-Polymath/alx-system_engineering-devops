@@ -1,0 +1,3 @@
+#!/bin/bash
+varwithpath="$PATH"
+cd $varwithpath
