@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -l | sort -k8 | head -n 10
+find . -type f | sort -k8 | head -n 10
