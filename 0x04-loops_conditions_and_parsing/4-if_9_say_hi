@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Displays 'Holberton School 10 times, but for the
+# 9th iteration it displays 'Holberton School' and
+# then 'Hi' on a new line
+x=1
+while [ $x -le 10 ]
+do
+	if [ $x -lt 10 ]
+	then
+	   echo 'Holberton School'
+	else
+	   printf "Hi\nHolberton School\n"
+	fi
+	let x++
+done
