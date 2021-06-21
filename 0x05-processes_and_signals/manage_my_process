@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Indefinetely writes 'I am alive!' message to the file /tmp/my_process
+# In between every I am alive! message, pause for 2 seconds
+create()
+{
+    echo "I am alive!" > my_process
+    sudo cp my_process /tmp
+    sleep 2
+}
+while :
+do
+create
+done

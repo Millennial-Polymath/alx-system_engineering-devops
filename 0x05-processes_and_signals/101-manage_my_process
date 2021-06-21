@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# This script manages the the manage_process file
+create()
+{
+    echo "$$" > my_process.pid
+    sudo cp my_process.pid /var/run
+}
+kill_it()
+{
+
+sudo killall -s SIGINT manage_my_process
+}
+case $1 in
+    start)
+	sudo ./manage_my_process && create &
+	echo "manage_my_process started"
+	;;
+    stop)
+	echo "manage_my_process stopped"
+	kill_it  && sudo rm -f /var/run/my_process.pid
+	;;
+    restart)
+	if pgrep -x "manage_my_process" >/dev/null
+	    then
+	    kill_it  && sudo rm -f /var/run/my_process.pid
+	    sudo ./manage_my_process && create &
+	else
+	    sudo ./manage_my_process && create &
+	fi
+       	echo "manage_my_process restarted"
+	;;
+    *)
+	echo "Usage: manage_my_process {start|stop|restart}"
+	;;
+esac
