@@ -6,11 +6,13 @@
 # Deletes the file /var/run/holbertonscript.pid and terminates when receiving
 # SIGQUIT or SIGTERM signal
 
-file=$(echo "$$" > /var/run/holbertonscript.pid)
+echo "$$" > holbertonscript.pid
+sudo cp holbertonscript.pid /var/run/
+
 hate_kill()
 {
 	echo "I hate the kill command"
-	rm -f "$file"
+	sudo rm -f /var/run/holbertonscript.pid
 }
 love_me()
 {
@@ -18,7 +20,7 @@ love_me()
 }
 trap 'hate_kill; exit' SIGTERM
 trap 'love_me; exit' SIGINT
-trap 'rm -f "$file"; exit' SIGQUIT
+trap 'rm -f /var/run/holbertonscript.pid; exit' SIGQUIT
 
 
 while :
