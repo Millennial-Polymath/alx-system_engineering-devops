@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # This script stops 4-infinity_and_beyond process
 # shellcheck disable=SC2009
-var=$(pgrep bash -l | awk 'FNR == 3 {print $1}')
-kill "$var"
+#var=$(pgrep bash -l | awk 'FNR == 3 {print $1}')
+#kill "$var"
 
 # Option 2
-#var=$(ps aux | grep "4-infinity_and_beyond | awk 'FNR == 1 {print $2}')
-#kill "$var"
+var=$(ps aux | grep "4-infinity_and_beyond | awk 'FNR == 1 {print $2}')
+kill "$var"
