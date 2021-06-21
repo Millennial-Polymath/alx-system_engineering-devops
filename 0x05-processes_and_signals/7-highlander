@@ -4,10 +4,11 @@ sig()
 {
     echo "I am invicible!!!"
 }
+trap "sig" SIGTERM
 
 while :
 do
 echo "To infinity and beyond"
 sleep 2
-trap "sig" SIGTERM
+#trap "sig" SIGTERM
 done
