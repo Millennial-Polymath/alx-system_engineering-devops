@@ -2,13 +2,13 @@
 # This script catches SIGTERM signal and echoes, "I am invicible"
 sig()
 {
-    echo "I am invicible!!!"
+    echo "I am invincible!!!"
 }
-trap "sig" SIGTERM
+
 
 while :
 do
 echo "To infinity and beyond"
 sleep 2
-#trap "sig" SIGTERM
+trap "sig" SIGTERM
 done
