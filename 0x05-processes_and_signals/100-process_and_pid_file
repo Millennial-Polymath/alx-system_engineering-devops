@@ -6,7 +6,7 @@
 # Deletes the file /var/run/holbertonscript.pid and terminates when receiving
 # SIGQUIT or SIGTERM signal
 
-file=$(touch /var/run/holbertonscript.pid)
+file=$(echo "$$" > /var/run/holbertonscript.pid)
 hate_kill()
 {
 	echo "I hate the kill command"
