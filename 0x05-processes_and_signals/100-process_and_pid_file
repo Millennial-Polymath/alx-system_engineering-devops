@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Creates a file /var/run/holbertonscript.pid
+# Displays To infinity and beyond indefinitely
+# Displays I hate the Kill command when receiving a sigterm signal
+# Displays Y U no love me?! when receiving a sigint signal
+# Deletes the file /var/run/holbertonscript.pid and terminates when receiving
+# SIGQUIT or SIGTERM signal
+
+file=$(touch /var/run/holbertonscript.pid)
+hate_kill()
+{
+	echo "I hate the kill command"
+	rm -f "$file"
+}
+love_me()
+{
+	echo "Y U no love me?!"
+}
+trap 'hate_kill; exit' SIGTERM
+trap 'love_me; exit' SIGINT
+trap 'rm -f "$file"; exit' SIGQUIT
+
+
+while :
+do
+echo "To infinity and beyond"
+done
